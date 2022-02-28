@@ -1,5 +1,11 @@
 # Datadog changelog
 
+## 2.31.0
+
+***Warning:*** From this version, on GKE Autopilot, only one "datadog" helm chart release is allow by Kubernetes namespace due to the following new constraints:
+* On GKE autopilot, make the "Agent" Daemonset serviceaccountName immutable.
+* On GKE autopilot, make the "Install Info" ConfigMap name immutable.
+
 ## 2.30.12
 
 * Add an option to remove the container runtime socket access.
