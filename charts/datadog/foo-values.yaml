@@ -17,6 +17,9 @@ datadog:
   processAgent:
     enabled: true
     processCollection: true
+  securityAgent:
+    compliance:
+      enabled: true
   kubelet:
     hostCAPath: '/etc/kubernetes/certs/kubeletserver.crt'
     tlsVerify: false
