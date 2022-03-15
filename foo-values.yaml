@@ -1,0 +1,49 @@
+env: "foo"
+
+targetSystem: "linux"
+
+datadog:
+  clusterName: "foo-common-aks1"
+  registry: "public.ecr.aws/datadog"
+  apiKeyExistingSecret: "datadog-secrets"
+  logs:
+    enabled: true
+    containerCollectAll: true
+  kubeStateMetricsCore:
+    enabled: true
+    ignoreLegacyKSMCheck: true
+  networkMonitoring:
+    enabled: true
+  processAgent:
+    enabled: true
+    processCollection: true
+  kubelet:
+    hostCAPath: '/etc/kubernetes/certs/kubeletserver.crt'
+    tlsVerify: false
+  agents:
+    volumeMounts:
+      - name: "datadog-secrets"
+        mountPath: "/mnt/datadog-secrets"
+        readOnly: true
+    volumes:
+      - name: "datadog-secrets"
+        csi:
+          driver: "secrets-store.csi.k8s.io"
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "azure-secret-sync"
+  clusterAgent:
+    enabled: true
+    metricsProvider:
+      enabled: true
+    volumeMounts:
+      - name: "datadog-secrets"
+        mountPath: "/mnt/datadog-secrets"
+        readOnly: true
+    volumes:
+      - name: "datadog-secrets"
+        csi:
+          driver: "secrets-store.csi.k8s.io"
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "azure-secret-sync"
