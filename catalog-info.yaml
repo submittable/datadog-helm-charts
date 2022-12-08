@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: datadog-helm-charts
+  description: Helm charts for Datadog products
+  annotations:
+    github.com/project-slug: submittable/datadog-helm-charts
+  tags: []
+spec:
+  type: library
+  owner: group:submittable/infrastructure
+  lifecycle: production
+  
