@@ -4,7 +4,7 @@ kind: Component
 metadata:
   name: datadog-helm-charts
   description: "Helm charts for Datadog products"
-  annotations: 
+  annotations:
     github.com/project-slug: submittable/datadog-helm-charts
     pagerduty.com/integration-key: 0cb1d91abacd4101c030087b3b27df2e
     pagerduty.com/service-id: P6NGV0P
